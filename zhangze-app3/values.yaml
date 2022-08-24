@@ -1,0 +1,27 @@
+service-three:
+  fullnameOverride: service-three
+  image:
+    repository: ghcr.io/forkmain-bot/repo-three
+    tag: main
+  imagePullSecrets:
+  - name: zhangze-app3-docker
+  nocalhost:
+    command:
+      debug:
+      - ""
+      run:
+      - yarn
+      - install
+      - '&&'
+      - yarn
+      - dev
+    configPath: conf/nocalhost.yaml
+    env: null
+    gitURL: https://github.com/forkmain-bot/repo-three.git
+    hotReload: false
+    image: null
+    language: vite
+    persistentVolumeDirs: null
+    remoteDebugPort: 9009
+  service:
+    targetPort: 3000
